@@ -36,13 +36,15 @@
                     <td>{{tramite.fecha| date:'mediumDate'}}</td>
                     <td>{{tramite.fechaFin| date:'mediumDate'}}</td>
                     <td>{{tramite.observaciones}}</td>
+                    
                     <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
                         <span ng-if="tramite.archivos[0].archivo">
                             <a ng-click="vm.openFile(tramite.archivos[0].archivoContentType, tramite.archivos[0].archivo)">
                                <button type="button" class="btn btn-info">Abrir <span class="glyphicon glyphicon-file"></span></button>
                             </a>
                         </span>
-                        
+                            
                         <span ng-if="tramite.archivos[1].archivo">
                             <a ng-click="vm.openFile(tramite.archivos[1].archivoContentType, tramite.archivos[1].archivo)">
                                 <button type="button" class="btn btn-info">Abrir <span class="glyphicon glyphicon-file"></span></button>
@@ -54,10 +56,9 @@
                                 <button type="button" class="btn btn-info">Abrir <span class="glyphicon glyphicon-file"></span></button> 
                             </a>
                         </span>  
+                        </div>
                     </td>
 
-
-                    <!--                    <td>{{tramite.archivos}}</td>-->
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <!--                            <button type="submit"

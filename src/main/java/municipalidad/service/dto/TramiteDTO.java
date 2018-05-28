@@ -2,6 +2,7 @@ package municipalidad.service.dto;
 
 import java.time.ZonedDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import municipalidad.domain.Archivos;
 import municipalidad.domain.ArchivosDetalle;
@@ -17,7 +18,7 @@ public class TramiteDTO {
 
     private String observaciones;
 
-    private Set<Archivos> archivos = new HashSet<>();
+    private List<Archivos> archivos;
 
     private ArchivosDetalle archivosDetalle;
 
@@ -54,15 +55,7 @@ public class TramiteDTO {
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
-
-    public Set<Archivos> getArchivos() {
-        return archivos;
-    }
-
-    public void setArchivos(Set<Archivos> archivos) {
-        this.archivos = archivos;
-    }
-
+    
     public ArchivosDetalle getArchivosDetalle() {
         return archivosDetalle;
     }
@@ -79,4 +72,12 @@ public class TramiteDTO {
         this.operador = operador;
     }
 
+    public List<Archivos> getArchivos() {
+        return archivos;
+    }
+
+    public void setArchivos(List<Archivos> archivos) {
+        this.archivos = archivos;
+    }
+    
 }

@@ -1,5 +1,6 @@
 package municipalidad.repository;
 
+import java.util.List;
 import java.util.Set;
 import municipalidad.domain.Archivos;
 import municipalidad.domain.Tramite;
@@ -17,6 +18,6 @@ import org.springframework.data.repository.query.Param;
 public interface ArchivosRepository extends JpaRepository<Archivos, Long> {
     
     @Query("select a from Archivos a where a.tramite = :p_tramite")
-    Set<Archivos> findByTramite(@Param("p_tramite") Tramite p_tramite);
+    List<Archivos> findByTramite(@Param("p_tramite") Tramite p_tramite);
 
 }

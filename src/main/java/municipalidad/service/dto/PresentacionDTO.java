@@ -1,5 +1,4 @@
 package municipalidad.service.dto;
-import java.util.ArrayList;
 import java.util.List;
 import municipalidad.domain.Archivos;
 import municipalidad.domain.ArchivosDetalle;
@@ -16,11 +15,12 @@ public class PresentacionDTO {
     private String cuitEscribano;
     private String nombre;
     private String apellido;
+    private String observaciones;
     private User user;
     private Escribania escribania;
     private List<Archivos> archivo;
     private List<Tramite> tramite;
-    private ArrayList<ArchivosDetalle> archivosDetalle;
+    private List<ArchivosDetalle> archivosDetalle;
     
     
     
@@ -88,15 +88,21 @@ public class PresentacionDTO {
         this.user = user;
     }
 
-    public ArrayList<ArchivosDetalle> getArchivosDetalle() {
+    public List<ArchivosDetalle> getArchivosDetalle() {
         return archivosDetalle;
     }
 
-    public void setArchivosDetalle(ArrayList<ArchivosDetalle> archivosDetalle) {
+    public void setArchivosDetalle(List<ArchivosDetalle> archivosDetalle) {
         this.archivosDetalle = archivosDetalle;
     }
-    
-    
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
     
     
 }

@@ -1,22 +1,23 @@
-(function() {
+(function () {
     'use strict';
 
     angular
-        .module('escribanosApp')
-        .controller('PresentacionController', PresentacionController);
+            .module('escribanosApp')
+            .controller('PresentacionController', PresentacionController);
 
-    PresentacionController.$inject = ['Presentacion'];
+    PresentacionController.$inject = ['Presentacion', 'DataUtils'];
 
-    function PresentacionController(Presentacion) {
+    function PresentacionController(Presentacion, DataUtils) {
 
         var vm = this;
 
         vm.presentacions = [];
-
+        vm.openFile = DataUtils.openFile;
+        vm.byteSize = DataUtils.byteSize;
         loadAll();
 
         function loadAll() {
-            Presentacion.query(function(result) {
+            Presentacion.query(function (result) {
                 vm.presentacions = result;
                 vm.searchQuery = null;
             });
