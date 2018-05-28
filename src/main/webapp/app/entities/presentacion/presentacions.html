@@ -21,6 +21,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th><span data-translate="escribanosApp.presentacion.cuitEscribano">Cuit Escribano</span></th>
                     <th><span data-translate="escribanosApp.presentacion.nombre">Nombre</span></th>
                     <th><span data-translate="escribanosApp.presentacion.apellido">Apellido</span></th>
@@ -32,6 +33,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="presentacion in vm.presentacions track by presentacion.id">
+                    <td>{{presentacion.id}}</td>
                     <td>{{presentacion.cuitEscribano}}</td>
                     <td>{{presentacion.nombre}}</td>
                     <td>{{presentacion.apellido}}</td>

@@ -45,9 +45,14 @@
                     $state.current.name === 'finishReset' || $state.current.name === 'requestReset') {
                     $state.go('home');
                 }
+                
 
                 $rootScope.$broadcast('authenticationSuccess');
-
+                
+                
+                
+                
+                $state.go('presentacion');
                 // previousState was set in the authExpiredInterceptor before being redirected to login modal.
                 // since login is successful, go to stored previousState and clear previousState
                 if (Auth.getPreviousState()) {
@@ -55,6 +60,7 @@
                     Auth.resetPreviousState();
                     $state.go(previousState.name, previousState.params);
                 }
+                //$state.go('presentacion');
             }).catch(function () {
                 vm.authenticationError = true;
             });
