@@ -5,9 +5,9 @@
         .module('escribanosApp')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$rootScope', '$state', '$timeout', 'Auth', '$uibModalInstance'];
+    LoginController.$inject = ['$rootScope', '$state', '$timeout', 'Auth', '$uibModalInstance', 'Principal'];
 
-    function LoginController ($rootScope, $state, $timeout, Auth, $uibModalInstance) {
+    function LoginController ($rootScope, $state, $timeout, Auth, $uibModalInstance, Principal) {
         var vm = this;
 
         vm.authenticationError = false;
@@ -51,8 +51,21 @@
                 
                 
                 
+               
                 
+                function getAccount() {
+                    Principal.identity().then(function(account) {
+                        vm.account = account;
+                        vm.isAuthenticated = Principal.isAuthenticated;
+                    });
+                }
+                console.log(Principal.identity());
+
+
+
+
                 $state.go('presentacion');
+
                 // previousState was set in the authExpiredInterceptor before being redirected to login modal.
                 // since login is successful, go to stored previousState and clear previousState
                 if (Auth.getPreviousState()) {

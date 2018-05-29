@@ -51,10 +51,16 @@ spring:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
     mail:
-        host: localhost
-        port: 25
-        username:
-        password:
+        host: smtp-mail.outlook.com
+        port: 587
+        username: facundoagustin1994@hotmail.com
+        password: 321654
+        protocol: smtp
+        tls: true
+        properties.mail.smtp:
+            auth: true
+            starttls.enable: true
+            ssl.trust: smtp-mail.outlook.com
     messages:
         cache-seconds: 1
     thymeleaf:

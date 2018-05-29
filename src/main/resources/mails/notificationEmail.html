@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.notification.title}">Sus archivos fueron revisado!</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="shortcut icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+    </head>
+    <body>
+        <p th:text="#{email.reset.greeting(${user.login})}">
+            Estimado
+        </p>
+        <p>
+            Para poder observar estos cambios, ingrese en xxxx/escribanos"
+        </p>
+        <p>
+        </p>
+        <p>
+            <span>Saludos</span>
+            <br/>
+            <em>© Equipo de Desarrollo de Sistemas. Municipalidad de Gral. San Martín</em>
+        </p>
+    </body>
+</html>
