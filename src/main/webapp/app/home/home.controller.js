@@ -20,7 +20,7 @@
 
         getAccount();
         
-        console.log(getAccount());
+       // console.log(getAccount());
 
         function getAccount() {
             Principal.identity().then(function(account) {
