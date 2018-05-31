@@ -27,6 +27,8 @@ management:
 spring:
     application:
         name: Escribanos
+    jmx:
+        default-domain: escribanos
     profiles:
         # The commented value for `active` can be replaced with valid Spring profiles to load.
         # Otherwise, it will be filled in by maven when building the WAR file
@@ -94,7 +96,7 @@ jhipster:
         license:
         license-url:
     ribbon:
-        display-on-active-profiles: dev
+        display-on-active-profiles: prod
 
 # ===================================================================
 # Application specific properties

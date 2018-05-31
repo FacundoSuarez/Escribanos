@@ -12,9 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import municipalidad.domain.ArchivosDetalle;
+import municipalidad.domain.User;
 import municipalidad.repository.ArchivosDetalleRepository;
 import municipalidad.repository.ArchivosRepository;
 import municipalidad.service.ArchivosDetalleService;
+import municipalidad.service.MailService;
 import municipalidad.service.dto.TramiteDTO;
 
 /**
@@ -28,12 +30,16 @@ public class TramiteServiceImpl implements TramiteService {
     private final ArchivosDetalleService archivosDetalleService;
     private final TramiteRepository tramiteRepository;
     private final ArchivosRepository archivosRepository;
+    private final MailService mailService;
 
-    public TramiteServiceImpl(ArchivosDetalleService archivosDetalleService, TramiteRepository tramiteRepository, ArchivosRepository archivosRepository) {
+    public TramiteServiceImpl(ArchivosDetalleService archivosDetalleService, TramiteRepository tramiteRepository, ArchivosRepository archivosRepository, MailService mailService) {
         this.archivosDetalleService = archivosDetalleService;
         this.tramiteRepository = tramiteRepository;
         this.archivosRepository = archivosRepository;
+        this.mailService = mailService;
     }
+
+
 
     /**
      * Save a tramite.
@@ -46,6 +52,11 @@ public class TramiteServiceImpl implements TramiteService {
         Tramite retorno = tramiteRepository.save(tramite);
         retorno.setFechaFin(ZonedDateTime.now());
         archivosDetalleService.save(tramite.getArchivosDetalle());
+        
+        
+        User email = tramite.getArchivosDetalle().getPresentacion().getEscribania().getUsuario();
+        mailService.sendNotificationMail(email);
+        
         log.debug("Request to save Tramite : {}", tramite);
         return retorno;
     }

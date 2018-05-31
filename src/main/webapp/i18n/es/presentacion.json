@@ -1,4 +1,3 @@
-
 {
     "escribanosApp": {
         "presentacion" : {
@@ -20,7 +19,13 @@
             "nombre": "Nombre",
             "apellido": "Apellido",
             "archivosDetalle": "Archivos Detalle",
-            "escribania": "Escribania"
+            "escribania": "Escribania",
+            
+            "null": "",
+            "ENTREGADO": "ENTREGADO",
+            "REVISION": "REVISION",
+            "LISTO_PARA_RETIRAR": "LISTO PARA RETIRAR"
         }
+        
     }
 }

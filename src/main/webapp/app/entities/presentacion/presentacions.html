@@ -1,66 +1,91 @@
 <div>
-    <h2 data-translate="escribanosApp.presentacion.home.title">Presentacions</h2>
+    <h2>Iniciar tramite</h2>
+    <h4>Aquí podrá ingresar sus archivos para revisión. </h4>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="presentacion.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="escribanosApp.presentacion.home.createLabel">
-                        Create new Presentacion
+                    <span>
+                        Agregar
                     </span>
                 </button>
             </div>
         </div>
     </div>
+    <br>
+    <h4>Consulte el estado de sus presentaciones en la siguiente lista: </h4>
     <br/>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th>ID</th>
                     <th><span data-translate="escribanosApp.presentacion.cuitEscribano">Cuit Escribano</span></th>
                     <th><span data-translate="escribanosApp.presentacion.nombre">Nombre</span></th>
                     <th><span data-translate="escribanosApp.presentacion.apellido">Apellido</span></th>
                     <th><span data-translate="escribanosApp.presentacion.escribania">Escribania</span></th>
+                    <th>Estado</th>
+                    <th>Observaciones</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="presentacion in vm.presentacions track by presentacion.id">
-                    <td><a ui-sref="presentacion-detail({id:presentacion.id})">{{presentacion.id}}</a></td>
+                    <td>{{presentacion.id}}</td>
                     <td>{{presentacion.cuitEscribano}}</td>
                     <td>{{presentacion.nombre}}</td>
                     <td>{{presentacion.apellido}}</td>
                     <td>{{presentacion.escribania.usuario.login}}</td>
-                    
-                    
-                        
-                    
-                    
-                    
+                    <td data-translate="{{'escribanosApp.presentacion.' + presentacion.archivosDetalle[0].estado}}">{{presentacion.archivosDetalle[0].estado}}</td>
+                    <td>{{presentacion.tramite[0].observaciones}}</td>
+
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="presentacion-detail({id:presentacion.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
-                            </button>
-<!--                            <button type="submit"
-                                    ui-sref="presentacion.edit({id:presentacion.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
-                            </button>-->
-                            <button type="submit"
-                                    ui-sref="presentacion.delete({id:presentacion.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
-                            </button>
+                            <span ng-if="presentacion.archivo[0].archivo">
+                                <a ng-click="vm.openFile(presentacion.archivo[0].archivoContentType, presentacion.archivo[0].archivo)">
+                                    <button type="button" class="btn btn-info">Abrir <span class="glyphicon glyphicon-file"></span></button>
+                                </a>
+                            </span>
+
+                            <span ng-if="presentacion.archivo[1].archivo">
+                                <a ng-click="vm.openFile(presentacion.archivo[1].archivoContentType, presentacion.archivo[1].archivo)">
+                                    <button type="button" class="btn btn-info">Abrir <span class="glyphicon glyphicon-file"></span></button>
+                                </a>
+                            </span>
+
+                            <span ng-if="presentacion.archivo[2].archivo">
+                                <a ng-click="vm.openFile(presentacion.archivo[2].archivoContentType, presentacion.archivo[2].archivo)">
+                                    <button type="button" class="btn btn-info">Abrir <span class="glyphicon glyphicon-file"></span></button> 
+                                </a>
+                            </span>  
                         </div>
                     </td>
+
+
+
+
+
+
+
+                    <!--                    <td class="text-right">
+                                            <div class="btn-group flex-btn-group-container">
+                                                <button type="submit"
+                                                        ui-sref="presentacion-detail({id:presentacion.id})"
+                                                        class="btn btn-info btn-sm">
+                                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                                    <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                                                </button>
+                                                <button type="submit"
+                                                        ui-sref="presentacion.edit({id:presentacion.id})"
+                                                        class="btn btn-primary btn-sm">
+                                                    <span class="glyphicon glyphicon-pencil"></span>
+                                                    <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                                                </button>
+                                                
+                                            </div>
+                                        </td>-->
                 </tr>
             </tbody>
         </table>
