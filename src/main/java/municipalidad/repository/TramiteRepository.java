@@ -2,7 +2,6 @@ package municipalidad.repository;
 
 import java.util.List;
 import municipalidad.domain.ArchivosDetalle;
-import municipalidad.domain.Presentacion;
 import municipalidad.domain.Tramite;
 import org.springframework.stereotype.Repository;
 

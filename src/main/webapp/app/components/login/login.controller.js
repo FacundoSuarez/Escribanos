@@ -57,20 +57,23 @@
                     Principal.identity().then(function(account) {
                         vm.account = account;
                         vm.isAuthenticated = Principal.isAuthenticated;
-                        //console.log(account);
-                       // console.log(account.authorities);
+                        console.log(account);
+                        console.log(account.authorities);
                         for (var i = 0; i < account.authorities.length; i++) {
                             if(account.authorities[i] === 'ROLE_ESCRIBANIA'){
-                                $state.go('presentacin');
+                                $state.go('presentacion');
                             }else if(account.authorities[i] === 'ROLE_OPERADOR'){
                                 $state.go('tramite');
                             }else{
                                 $state.go('home');
                             }
-                          //  console.log(account.authorities[i]);
+                            console.log(account.authorities[i]);
                         }
                     });
-                    
+
+
+
+
                 // previousState was set in the authExpiredInterceptor before being redirected to login modal.
                 // since login is successful, go to stored previousState and clear previousState
                 if (Auth.getPreviousState()) {

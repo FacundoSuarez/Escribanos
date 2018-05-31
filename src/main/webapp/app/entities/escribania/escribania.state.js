@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/escribania',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_USER','ROLE_ESCRIBANIA'],
                 pageTitle: 'escribanosApp.escribania.home.title'
             },
             views: {

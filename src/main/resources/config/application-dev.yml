@@ -32,9 +32,15 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/Escribanos?useUnicode=true&characterEncoding=utf8&useSSL=false
-        username: root
-        password: admin
+        
+#        url: jdbc:mysql://localhost:3306/Escribanos?useUnicode=true&characterEncoding=utf8&useSSL=false
+#        username: root
+#        password: admin
+        
+        url: jdbc:mysql://192.168.48.241:3306/Escribanos?useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: escribano
+        password: escribano2016
+        
         hikari:
             data-source-properties:
                 cachePrepStmts: true

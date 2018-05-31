@@ -12,8 +12,8 @@
         <div class="col-md-8">
             
             
-            <h1>Welcome, Java Hipster!</h1>
-            <p class="lead" data-translate="home.subtitle">This is your homepage</p>
+            <h1>Sistema de aprobación de escrituras</h1>
+            <p class="lead">Podrá cargar sus archivos para su pronta revisión!</p>
 
             <div ng-switch="vm.isAuthenticated()">
                 <div class="alert alert-success" ng-switch-when="true" data-translate="home.logged.message" translate-values="{username: '{{vm.account.login}}'}">
@@ -21,7 +21,8 @@
                 </div>
                 
                                 <div class="alert alert-warning" ng-switch-when="false" translate-compile>
-                                    Para generar su usuario y contraseña deberá ponerse en contacto con la Oficina de Obras Privadas.
+                                    Para generar su usuario y contraseña deberá ponerse en contacto con el 
+                                    <a href="http://cn.cnmza.org.ar/" target="_blank" rel="noopener" >Colegio Notarial de Mendoza</a>
                                 </div>
                   
 <!--                                <div class="alert alert-warning" ng-switch-when="false" data-translate="global.messages.info.register" translate-compile>

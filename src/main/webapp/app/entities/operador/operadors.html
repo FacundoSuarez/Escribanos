@@ -21,16 +21,16 @@
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="escribanosApp.operador.nombre">Nombre</span></th>
                     <th><span data-translate="escribanosApp.operador.usuario">Usuario</span></th>
+                    <th>Email Operador</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="operador in vm.operadors track by operador.id">
                     <td><a ui-sref="operador-detail({id:operador.id})">{{operador.id}}</a></td>
-                    <td>{{operador.nombre}}</td>
-                    <td>
-                        {{operador.usuario.id}}
-                    </td>
+                    <td>{{operador.usuario.lastName}}</td>
+                    <td>{{operador.usuario.login}}</td>
+                    <td>{{operador.usuario.email}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

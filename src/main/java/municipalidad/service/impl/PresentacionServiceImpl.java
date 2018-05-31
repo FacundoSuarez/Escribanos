@@ -50,29 +50,23 @@ public class PresentacionServiceImpl implements PresentacionService {
         this.userService = userService;
         this.escribaniaRepository = escribaniaRepository;
     }
-
-    /**
-     * Save a presentacion.
-     *
-     * @param presentacion the entity to save
-     * @return the persisted entity
-     */
-    @Override
-    public Presentacion save(Presentacion presentacion) {
-        log.debug("Request to save Presentacion : {}", presentacion);
-        return presentacionRepository.save(presentacion);
-    }
-
+    
     /**
      * Get all the presentacions.
-     *
+     * TRAE TODAS LAS PRESENTACIONES FILTRADAS POR EL USUARIO QUE ESTA LOGGEADO
      * @return the list of entities
      */
     @Override
     @Transactional(readOnly = true)
     public List<PresentacionDTO> findAll() {
-        List<Presentacion> presentaciones = presentacionRepository.findAll();
+        //OBTIENE EL USUARIO LOGUEADO
+        Optional<User> user = userService.getUserWithAuthorities();
+        //BUSCA EL USUARIO QUE CORRESPONDE A LA ESCRIBANIA
+        Escribania escribania = (escribaniaRepository.findByUsuario(user.get()));
+        //TRAE TODAS LAS PRESENTACIONES QUE TENGA ESA ESCRIBANIA
+        List<Presentacion> presentaciones = presentacionRepository.findByEscribania(escribania);
         List<PresentacionDTO> retorno = new ArrayList<>();
+        //HACE EL OBJETO QUE VA A MANDAR A LA LISTA
         PresentacionDTO dto = new PresentacionDTO();
 
         for (Presentacion presentacion : presentaciones) {
@@ -85,14 +79,12 @@ public class PresentacionServiceImpl implements PresentacionService {
             dto.setArchivosDetalle(archivosDetalleRepository.findByPresentacion(presentacion));
             for (ArchivosDetalle detalle : dto.getArchivosDetalle()) {
                 dto.setTramite(tramiteRepository.findByArchivosDetalle(detalle));
-//                     dto.setTramite(tramiteList);
                 for (Tramite detalle1 : dto.getTramite()) {
                     dto.setArchivo(archivosRepository.findByTramite(detalle1));
                 }
             }
 
-//            List<ArchivosDetalle> detalle = archivosDetalleRepository.findByPresentacion(presentacion);
-//            dto.setTramite(tramiteRepository.findByArchivosDetalle( detalle));
+            
             retorno.add(dto);
             dto = new PresentacionDTO();
         }
@@ -100,16 +92,7 @@ public class PresentacionServiceImpl implements PresentacionService {
         log.debug("Request to get all Presentacions");
         return retorno;
     }
-
-//    public List<Tramite> getTramiteByArchivosDetalle(){
-//        
-//        Tramite retorno = new Tramite();
-//        
-//        retorno = tramiteRepository.findByArchivosDetalle(ArchivosDetalle));
-//        
-//        
-//        return null;
-//    }
+    
     @Override
     @Transactional(readOnly = true)
     public Presentacion findOne(Long id) {
@@ -190,4 +173,8 @@ public class PresentacionServiceImpl implements PresentacionService {
         return presentacion;
     }
 
+    @Override
+    public Presentacion save(Presentacion presentacion) {
+        return null;
+    }
 }

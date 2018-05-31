@@ -20,8 +20,20 @@
                         <span class="hidden-sm" data-translate="global.menu.home">Home</span>
                     </a>
                 </li>
+                <li ui-sref-active="active" has-any-authority="ROLE_ESCRIBANIA">
+                    <a ui-sref="presentacion">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="hidden-sm">Presentacion</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR">
+                    <a ui-sref="tramite">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="hidden-sm">Trámite</span>
+                    </a>
+                </li>
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-                <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer" has-any-authority="ROLE_ADMIN,ROLE_PROFESIONAL">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                         <span>
                             <span class="glyphicon glyphicon-th-list"></span>
