@@ -2,11 +2,11 @@
     "escribanosApp": {
         "presentacion" : {
             "home": {
-                "title": "Presentacions",
+                "title": "Presentacion",
                 "createLabel": "Crear nuevo Presentacion",
                 "createOrEditLabel": "Crear o editar Presentacion"
             },
-            "created": "Un nuevo Presentacion ha sido creado con el identificador {{ param }}",
+            "created": "Un nuevo tramite se ha creado con el ID: {{ param }}",
             "updated": "Un Presentacion ha sido actualizado con el identificador {{ param }}",
             "deleted": "Un Presentacion ha sido eliminado con el identificador {{ param }}",
             "delete": {
