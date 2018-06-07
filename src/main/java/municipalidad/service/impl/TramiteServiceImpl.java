@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import municipalidad.domain.ArchivosDetalle;
 import municipalidad.domain.User;
+import municipalidad.domain.enumeration.EstadoPresentacion;
 import municipalidad.repository.ArchivosDetalleRepository;
 import municipalidad.repository.ArchivosRepository;
 import municipalidad.service.ArchivosDetalleService;
@@ -52,8 +53,6 @@ public class TramiteServiceImpl implements TramiteService {
         Tramite retorno = tramiteRepository.save(tramite);
         retorno.setFechaFin(ZonedDateTime.now());
         archivosDetalleService.save(tramite.getArchivosDetalle());
-        
-        
         User email = tramite.getArchivosDetalle().getPresentacion().getEscribania().getUsuario();
         mailService.sendNotificationMail(email);
         

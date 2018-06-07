@@ -16,6 +16,7 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+import municipalidad.service.dto.ArchivosDetalleDTO;
 
 /**
  * REST controller for managing ArchivosDetalle.
@@ -83,7 +84,7 @@ public class ArchivosDetalleResource {
      */
     @GetMapping("/archivos-detalles")
     @Timed
-    public List<ArchivosDetalle> getAllArchivosDetalles() {
+    public List<ArchivosDetalleDTO> getAllArchivosDetalles() {
         log.debug("REST request to get all ArchivosDetalles");
         return archivosDetalleService.findAll();
         }

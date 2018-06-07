@@ -2,6 +2,7 @@ package municipalidad.service;
 
 import municipalidad.domain.ArchivosDetalle;
 import java.util.List;
+import municipalidad.service.dto.ArchivosDetalleDTO;
 
 /**
  * Service Interface for managing ArchivosDetalle.
@@ -21,7 +22,7 @@ public interface ArchivosDetalleService {
      *
      * @return the list of entities
      */
-    List<ArchivosDetalle> findAll();
+    List<ArchivosDetalleDTO> findAll();
 
     /**
      * Get the "id" archivosDetalle.
@@ -37,4 +38,7 @@ public interface ArchivosDetalleService {
      * @param id the id of the entity
      */
     void delete(Long id);
+    
+    
+    
 }

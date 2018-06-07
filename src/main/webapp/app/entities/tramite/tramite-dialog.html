@@ -14,24 +14,31 @@
                    ng-model="vm.tramite.id" readonly />
         </div>
 
+        <div class="checkbox">
+            <label><input name="estado" type="checkbox" value="REVISION" ng-model="vm.tramite.archivosDetalle.estado" id="field_estado">Option 1</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">En Revision</label>
+        </div>
+
 
         <div class="form-group">
             <label class="control-label" data-translate="escribanosApp.tramite.observaciones" for="field_observaciones">Observaciones</label>
-            <input type="text" class="form-control" name="observaciones" id="field_observaciones"
-                   ng-model="vm.tramite.observaciones"
-                   />
+            <textarea type="text" class="form-control" name="observaciones" id="field_observaciones" rows="5" 
+                      ng-model="vm.tramite.observaciones"
+                      /></textarea>
         </div>
-        
-        
-        <div class="form-group">
+
+
+<!--        <div class="form-group">
             <label class="control-label"for="field_estado">Estado</label>
             <select class="form-control" name="estado" ng-model="vm.tramite.archivosDetalle.estado" id="field_estado">
                 <option value="REVISION">REVISION</option>
-                <option value="LISTO_PARA_RETIRAR">LISTO PARA RETIRAR</option>
             </select>
-        </div>
-        
-        
+        </div>-->
+
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

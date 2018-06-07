@@ -18,7 +18,9 @@
         vm.archivos = Archivos.query();
         vm.archivosdetalles = ArchivosDetalle.query();
         vm.operadors = Operador.query();
-
+        
+        
+        
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
         });

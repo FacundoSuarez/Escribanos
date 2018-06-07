@@ -1,5 +1,6 @@
 package municipalidad.service.impl;
 
+import java.util.ArrayList;
 import municipalidad.service.ArchivosDetalleService;
 import municipalidad.domain.ArchivosDetalle;
 import municipalidad.repository.ArchivosDetalleRepository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import municipalidad.service.dto.ArchivosDetalleDTO;
 
 /**
  * Service Implementation for managing ArchivosDetalle.
@@ -44,9 +46,14 @@ public class ArchivosDetalleServiceImpl implements ArchivosDetalleService {
      */
     @Override
     @Transactional(readOnly = true)
-    public List<ArchivosDetalle> findAll() {
+    public List<ArchivosDetalleDTO> findAll() {
+        List<ArchivosDetalleDTO> archivosDetalle = new ArrayList<>();
+        
+        
+        
         log.debug("Request to get all ArchivosDetalles");
-        return archivosDetalleRepository.findAll();
+//        return archivosDetalleRepository.findAll();
+        return archivosDetalle;
     }
 
     /**
@@ -72,4 +79,6 @@ public class ArchivosDetalleServiceImpl implements ArchivosDetalleService {
         log.debug("Request to delete ArchivosDetalle : {}", id);
         archivosDetalleRepository.delete(id);
     }
+
+   
 }
